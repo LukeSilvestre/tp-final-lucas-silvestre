@@ -1,20 +1,50 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# 🌐 Patitas Felices - Frontend
 
-# Run and deploy your AI Studio app
+Este es el cliente web para el sistema de gestión veterinaria **Patitas Felices**. Desarrollado con tecnologías modernas para ofrecer una experiencia de usuario fluida, rápida y segura.
 
-This contains everything you need to run your app locally.
+---
 
-View your app in AI Studio: https://ai.studio/apps/drive/1w2O3I_rAv2mi1KNXq-AZXuHk8H-6xU4q
+## 🛠️ Tecnologías
 
-## Run Locally
+- **React 19**: Biblioteca principal para la interfaz de usuario.
+- **TypeScript**: Para un desarrollo robusto y tipado estático.
+- **Vite**: Herramienta de construcción ultra rápida para el desarrollo.
+- **TailwindCSS**: Framework de CSS para un diseño moderno y responsivo.
+- **Material Symbols**: Set de iconos para una navegación intuitiva.
 
-**Prerequisites:**  Node.js
+---
 
+## 🚀 Ejecución Local
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+### Prerrequisitos
+- **Node.js**: Versión 18 o superior.
+- **Backend**: El servidor de la API debe estar corriendo (por defecto en el puerto 3000).
+
+### Pasos
+1. **Instalar dependencias**:
+   ```bash
+   npm install
+   ```
+
+2. **Correr en modo desarrollo**:
+   ```bash
+   npm run dev
+   ```
+   *La aplicación estará disponible por defecto en [http://localhost:5173](http://localhost:5173).*
+
+---
+
+## 📂 Estructura de Carpetas
+
+- `components/`: Componentes reutilizables (Header, Sidebar, etc).
+- `pages/`: Vistas principales de la aplicación (Login, Historial, Dueños).
+- `services/`: Lógica de comunicación con la API (`api.ts`).
+- `types.ts`: Definición de interfaces globales de TypeScript.
+
+---
+
+## 🩺 Funcionalidades Principales
+- **Gestión Clínica**: CRUD completo de historiales médicos.
+- **Panel de Seguridad**: Control de acceso y cierre de sesión.
+- **Gestión de Pacientes**: Visualización de dueños y mascotas registradas.
+- **Interfaz Adaptable**: Diseño responsivo y soporte para tema oscuro.
