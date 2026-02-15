@@ -1,0 +1,7 @@
+{
+  "name": "Patitas Felices Management App",
+  "description": "Una plataforma integral para clínicas veterinarias que permite gestionar citas, pacientes, historiales clínicos y administración de personal con un diseño moderno y responsivo.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}

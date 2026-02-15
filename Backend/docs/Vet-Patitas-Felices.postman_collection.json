@@ -1,0 +1,990 @@
+{
+  "info": {
+    "_postman_id": "be360674-9405-4caa-8bf5-dd230eb44700",
+    "name": "Vet - Patitas Felices",
+    "description": "### Welcome to Postman! This is your first collection. \n\nCollections are your starting point for building and testing APIs. You can use this one to:\n\n• Group related requests\n• Test your API in real-world scenarios\n• Document and share your requests\n\nUpdate the name and overview whenever you’re ready to make it yours.\n\n[Learn more about Postman Collections.](https://learning.postman.com/docs/collections/collections-overview/)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "52043730",
+    "_collection_link": "https://go.postman.co/collection/52043730-be360674-9405-4caa-8bf5-dd230eb44700?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Get Perfil Vete con token expirado",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": ""
+        },
+        "description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+      },
+      "response": [
+        {
+          "name": "Get Perfil con token expirado",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsImVtYWlsIjoiam9zZS5wZXJlekBwYXRpdGFzZmVsaWNlcy5jb20iLCJub21icmUiOiJKb3NlIiwiYXBlbGxpZG8iOiJQZXJleiIsInJvbCI6InZldGVyaW5hcmlvIiwiaWF0IjoxNzcwMTUwOTE1LCJleHAiOjE3NzAxNTQ1MTUsImlzcyI6InZldGVyaW5hcmlhLXBhdGl0YXMtZmVsaWNlcyJ9.QHCUExkCuMx0H5EZCjQV0I2R0HY2c_IFDrFMaTdIW7k"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/api/auth/perfil",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "auth",
+                "perfil"
+              ]
+            }
+          },
+          "status": "Forbidden",
+          "code": 403,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "38"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"26-SQSbY38JUwNyRBS24vWYSuShVkI\""
+            },
+            {
+              "key": "Date",
+              "value": "Wed, 04 Feb 2026 19:16:25 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"error\": \"Token inválido o expirado\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Get Perfil Vete con token valido",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": ""
+        },
+        "description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+      },
+      "response": [
+        {
+          "name": "Get Perfil con token expirado",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsImVtYWlsIjoiam9zZS5wZXJlekBwYXRpdGFzZmVsaWNlcy5jb20iLCJub21icmUiOiJKb3NlIiwiYXBlbGxpZG8iOiJQZXJleiIsInJvbCI6InZldGVyaW5hcmlvIiwiaWF0IjoxNzcwMTUwOTE1LCJleHAiOjE3NzAxNTQ1MTUsImlzcyI6InZldGVyaW5hcmlhLXBhdGl0YXMtZmVsaWNlcyJ9.QHCUExkCuMx0H5EZCjQV0I2R0HY2c_IFDrFMaTdIW7k"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/api/auth/perfil",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "auth",
+                "perfil"
+              ]
+            }
+          },
+          "status": "Forbidden",
+          "code": 403,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "38"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"26-SQSbY38JUwNyRBS24vWYSuShVkI\""
+            },
+            {
+              "key": "Date",
+              "value": "Wed, 04 Feb 2026 19:16:25 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"error\": \"Token inválido o expirado\"\n}"
+        },
+        {
+          "name": "Get Perfil Vete con token valido",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsImVtYWlsIjoiam9zZS5wZXJlekBwYXRpdGFzZmVsaWNlcy5jb20iLCJub21icmUiOiJKb3NlIiwiYXBlbGxpZG8iOiJQZXJleiIsInJvbCI6InZldGVyaW5hcmlvIiwiaWF0IjoxNzcwMjMyNDU5LCJleHAiOjE3NzAyMzYwNTksImlzcyI6InZldGVyaW5hcmlhLXBhdGl0YXMtZmVsaWNlcyJ9.4YMVijy65_CoNWdPtzL7VZ89UsdarcqChCEgdJpn4L4"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/api/auth/perfil",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "auth",
+                "perfil"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "227"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"e3-i4IFrq8QKUoEWuRNdBZxqyJXFdA\""
+            },
+            {
+              "key": "Date",
+              "value": "Wed, 04 Feb 2026 19:24:50 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"usuario\": {\n        \"id\": 12,\n        \"email\": \"jose.perez@patitasfelices.com\",\n        \"nombre\": \"Jose\",\n        \"apellido\": \"Perez\",\n        \"rol\": \"veterinario\",\n        \"iat\": 1770232459,\n        \"exp\": 1770236059,\n        \"iss\": \"veterinaria-patitas-felices\"\n    },\n    \"mensaje\": \"Perfil obtenido exitosamente\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Get Perfil Admin con token valido",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": ""
+        },
+        "description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+      },
+      "response": [
+        {
+          "name": "Get Perfil con token valido",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsImVtYWlsIjoiYWRtaW5fbGdzQHBhdGl0YXNmZWxpY2VzLmNvbSIsIm5vbWJyZSI6IkFkbWluaXN0cmFkb3IiLCJhcGVsbGlkbyI6IlNpc3RlbWEiLCJyb2wiOiJhZG1pbiIsImlhdCI6MTc3MDIzMjQwNywiZXhwIjoxNzcwMjM2MDA3LCJpc3MiOiJ2ZXRlcmluYXJpYS1wYXRpdGFzLWZlbGljZXMifQ.4WAfV0hygKwRqA_Fg3avriARI6R3pfsuOp-QFR6X5V0"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/api/auth/perfil",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "auth",
+                "perfil"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "231"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"e7-Dwv14i3c0oRV6Iu7/aZj+UmD6J8\""
+            },
+            {
+              "key": "Date",
+              "value": "Wed, 04 Feb 2026 19:19:30 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"usuario\": {\n        \"id\": 11,\n        \"email\": \"admin_lgs@patitasfelices.com\",\n        \"nombre\": \"Administrador\",\n        \"apellido\": \"Sistema\",\n        \"rol\": \"admin\",\n        \"iat\": 1770232407,\n        \"exp\": 1770236007,\n        \"iss\": \"veterinaria-patitas-felices\"\n    },\n    \"mensaje\": \"Perfil obtenido exitosamente\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "POST - Login admin",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Successful POST request\", function () {",
+              "    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+              "});",
+              ""
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"name\": \"Add your name in the body\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": ""
+        },
+        "description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+      },
+      "response": [
+        {
+          "name": "POST - Login admin",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"email\": \"admin_lgs@patitasfelices.com\",\n    \"password\": \"Admin123!\"\n  }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/auth/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "490"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"1ea-n4qXLLHbQly31U/SutPrMgAeYgw\""
+            },
+            {
+              "key": "Date",
+              "value": "Wed, 04 Feb 2026 19:13:27 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTEsImVtYWlsIjoiYWRtaW5fbGdzQHBhdGl0YXNmZWxpY2VzLmNvbSIsIm5vbWJyZSI6IkFkbWluaXN0cmFkb3IiLCJhcGVsbGlkbyI6IlNpc3RlbWEiLCJyb2wiOiJhZG1pbiIsImlhdCI6MTc3MDIzMjQwNywiZXhwIjoxNzcwMjM2MDA3LCJpc3MiOiJ2ZXRlcmluYXJpYS1wYXRpdGFzLWZlbGljZXMifQ.4WAfV0hygKwRqA_Fg3avriARI6R3pfsuOp-QFR6X5V0\",\n    \"usuario\": {\n        \"id\": 11,\n        \"email\": \"admin_lgs@patitasfelices.com\",\n        \"nombre\": \"Administrador\",\n        \"apellido\": \"Sistema\",\n        \"rol\": \"admin\",\n        \"created_at\": \"2026-02-03T23:30:54.000Z\"\n    }\n}"
+        }
+      ]
+    },
+    {
+      "name": "POST - Login veterinario",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test(\"Successful POST request\", function () {",
+              "    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+              "});",
+              ""
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"name\": \"Add your name in the body\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": ""
+        },
+        "description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+      },
+      "response": [
+        {
+          "name": "POST - Login veterinario",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"email\": \"jose.perez@patitasfelices.com\",\n    \"password\": \"Veterinario123!\"\n  }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/auth/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "480"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"1e0-JO+AP8VY4bw10yUBf95QX3f9B8I\""
+            },
+            {
+              "key": "Date",
+              "value": "Wed, 04 Feb 2026 19:14:19 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsImVtYWlsIjoiam9zZS5wZXJlekBwYXRpdGFzZmVsaWNlcy5jb20iLCJub21icmUiOiJKb3NlIiwiYXBlbGxpZG8iOiJQZXJleiIsInJvbCI6InZldGVyaW5hcmlvIiwiaWF0IjoxNzcwMjMyNDU5LCJleHAiOjE3NzAyMzYwNTksImlzcyI6InZldGVyaW5hcmlhLXBhdGl0YXMtZmVsaWNlcyJ9.4YMVijy65_CoNWdPtzL7VZ89UsdarcqChCEgdJpn4L4\",\n    \"usuario\": {\n        \"id\": 12,\n        \"email\": \"jose.perez@patitasfelices.com\",\n        \"nombre\": \"Jose\",\n        \"apellido\": \"Perez\",\n        \"rol\": \"veterinario\",\n        \"created_at\": \"2026-02-03T23:34:30.000Z\"\n    }\n}"
+        }
+      ]
+    },
+    {
+      "name": "GET Historial Token Invalido",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": [
+        {
+          "name": "GET Historial Token Invalido",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImVtYWlsIjoiYmVuaS5wZXBlQHBhdGl0YXNmZWxpY2VzLmNvbSIsIm5vbWJyZSI6IkJlbmljaW8iLCJhcGVsbGlkbyI6IlBlcGUiLCJyb2wiOiJ2ZXRlcmluYXJpbyIsImlhdCI6MTc3MDE1MTExOCwiZXhwIjoxNzcwMTU0NzE4LCJpc3MiOiJ2ZXRlcmluYXJpYS1wYXRpdGFzLWZlbGljZXMifQ.N_k11Ne-IqhSYwJ0B82LZi2mjZp0OMIC_t__cT1kwl8"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/api/historial",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "historial"
+              ]
+            }
+          },
+          "status": "Forbidden",
+          "code": 403,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "38"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"26-SQSbY38JUwNyRBS24vWYSuShVkI\""
+            },
+            {
+              "key": "Date",
+              "value": "Wed, 04 Feb 2026 19:26:23 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"error\": \"Token inválido o expirado\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "GET Historial Token valido",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": [
+        {
+          "name": "GET Historial Token Invalido",
+          "originalRequest": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMsImVtYWlsIjoiYmVuaS5wZXBlQHBhdGl0YXNmZWxpY2VzLmNvbSIsIm5vbWJyZSI6IkJlbmljaW8iLCJhcGVsbGlkbyI6IlBlcGUiLCJyb2wiOiJ2ZXRlcmluYXJpbyIsImlhdCI6MTc3MDE1MTExOCwiZXhwIjoxNzcwMTU0NzE4LCJpc3MiOiJ2ZXRlcmluYXJpYS1wYXRpdGFzLWZlbGljZXMifQ.N_k11Ne-IqhSYwJ0B82LZi2mjZp0OMIC_t__cT1kwl8"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/api/historial",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "historial"
+              ]
+            }
+          },
+          "status": "Forbidden",
+          "code": 403,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "38"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"26-SQSbY38JUwNyRBS24vWYSuShVkI\""
+            },
+            {
+              "key": "Date",
+              "value": "Wed, 04 Feb 2026 19:26:23 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"error\": \"Token inválido o expirado\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Registrar Vet nuevo",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": [
+        {
+          "name": "Registrar Vet nuevo",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"email\": \"nuevo.veterinario@patitas.com\",\n    \"password\": \"Vet123456\",\n    \"nombre\": \"Nuevo\",\n    \"apellido\": \"Veterinario\",\n    \"rol\": \"veterinario\",\n    \"matricula\": \"VET-99999\",\n    \"especialidad\": \"Dermatología\"\n  }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/auth/registrar",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "auth",
+                "registrar"
+              ]
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "53"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"35-/JIbVXyBZeTtV4ToxGpc5VUqDeY\""
+            },
+            {
+              "key": "Date",
+              "value": "Wed, 04 Feb 2026 20:29:58 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"id\": 14,\n    \"mensaje\": \"Usuario registrado exitosamente\"\n}"
+        }
+      ]
+    },
+    {
+      "name": "Login Usuario nuevo",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": [
+        {
+          "name": "Login Usuario nuevo",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"email\": \"nuevo.veterinario@patitas.com\",\n    \"password\": \"Vet123456\"\n  }",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/auth/login",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "497"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"1f1-Nj5IDOU77Lf2m46+HR8KLIubQM4\""
+            },
+            {
+              "key": "Date",
+              "value": "Wed, 04 Feb 2026 20:31:47 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTQsImVtYWlsIjoibnVldm8udmV0ZXJpbmFyaW9AcGF0aXRhcy5jb20iLCJub21icmUiOiJOdWV2byIsImFwZWxsaWRvIjoiVmV0ZXJpbmFyaW8iLCJyb2wiOiJ2ZXRlcmluYXJpbyIsImlhdCI6MTc3MDIzNzEwNywiZXhwIjoxNzcwMjQwNzA3LCJpc3MiOiJ2ZXRlcmluYXJpYS1wYXRpdGFzLWZlbGljZXMifQ.Xr5kQd7LjnQ7tBwH-3ghz9ae69-Nk1Yfsj4u0UL3-Ww\",\n    \"usuario\": {\n        \"id\": 14,\n        \"email\": \"nuevo.veterinario@patitas.com\",\n        \"nombre\": \"Nuevo\",\n        \"apellido\": \"Veterinario\",\n        \"rol\": \"veterinario\",\n        \"created_at\": \"2026-02-04T23:29:59.000Z\"\n    }\n}"
+        }
+      ]
+    },
+    {
+      "name": "Historial Clinico con usuario nuevo",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": [
+        {
+          "name": "Historial Clinico con usuario nuevo",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTQsImVtYWlsIjoibnVldm8udmV0ZXJpbmFyaW9AcGF0aXRhcy5jb20iLCJub21icmUiOiJOdWV2byIsImFwZWxsaWRvIjoiVmV0ZXJpbmFyaW8iLCJyb2wiOiJ2ZXRlcmluYXJpbyIsImlhdCI6MTc3MDIzNzEwNywiZXhwIjoxNzcwMjQwNzA3LCJpc3MiOiJ2ZXRlcmluYXJpYS1wYXRpdGFzLWZlbGljZXMifQ.Xr5kQd7LjnQ7tBwH-3ghz9ae69-Nk1Yfsj4u0UL3-Ww"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\"id_mascota\":1,\"descripcion\":\"Primera consulta del nuevo veterinario Dermatologo\"}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:3000/api/historial",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "historial"
+              ]
+            }
+          },
+          "status": "Created",
+          "code": 201,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "78"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"4e-9gGUEn0kcAi9He/+HStjb579gV4\""
+            },
+            {
+              "key": "Date",
+              "value": "Wed, 04 Feb 2026 20:34:58 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"id\": 3,\n    \"mensaje\": \"Historial clínico creado exitosamente\",\n    \"veterinario_id\": 3\n}"
+        }
+      ]
+    },
+    {
+      "name": "Delete de Historial",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": [
+        {
+          "name": "Delete de Historial",
+          "originalRequest": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsImVtYWlsIjoiam9zZS5wZXJlekBwYXRpdGFzZmVsaWNlcy5jb20iLCJub21icmUiOiJKb3NlIiwiYXBlbGxpZG8iOiJQZXJleiIsInJvbCI6InZldGVyaW5hcmlvIiwiaWF0IjoxNzcwMjM3OTA2LCJleHAiOjE3NzAyNDE1MDYsImlzcyI6InZldGVyaW5hcmlhLXBhdGl0YXMtZmVsaWNlcyJ9.CcJEAdWTNcVUzLL2wFwZ-UVhOd1_1B-v6FLDiaQIqc8"
+              }
+            ],
+            "url": {
+              "raw": "http://localhost:3000/api/historial/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "3000",
+              "path": [
+                "api",
+                "historial",
+                "1"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-Powered-By",
+              "value": "Express"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "53"
+            },
+            {
+              "key": "ETag",
+              "value": "W/\"35-JIWIvjcNpXf3X2kqDGORLOxIhCo\""
+            },
+            {
+              "key": "Date",
+              "value": "Wed, 04 Feb 2026 20:50:12 GMT"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=5"
+            }
+          ],
+          "cookie": [],
+          "body": "{\n    \"mensaje\": \"Historial eliminado exitosamente\",\n    \"id\": 1\n}"
+        }
+      ]
+    },
+    {
+      "name": "New Request",
+      "request": {
+        "method": "GET",
+        "header": []
+      },
+      "response": []
+    }
+  ]
+}

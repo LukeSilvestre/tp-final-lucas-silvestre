@@ -1,0 +1,52 @@
+services:
+  # Servicio de MySQL
+  # mysql:8.0
+  mysql:
+    image: mysql:5.7
+    container_name: curso_mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root123
+      MYSQL_DATABASE: curso_backend
+      MYSQL_USER: curso_user
+      MYSQL_PASSWORD: curso123
+    ports:
+      - '3306:3306'
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - curso_network
+    healthcheck:
+      test: ['CMD', 'mysqladmin', 'ping', '-h', 'localhost', '-u', 'root', '-proot123']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  #sistema gestion base datos
+  # Servicio de phpMyAdmin (interfaz web para administrar bases de datos MySQL)
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: curso_phpmyadmin
+    restart: always
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      PMA_USER: root
+      PMA_PASSWORD: root123
+      MYSQL_ROOT_PASSWORD: root123
+    ports:
+      - '8080:80'
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - curso_network
+
+volumes:
+  mysql_data:
+    driver: local
+
+networks:
+  curso_network:
+    driver: bridge
+
