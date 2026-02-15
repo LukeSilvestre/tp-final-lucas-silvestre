@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: mysql:3306
--- Tiempo de generación: 04-02-2026 a las 23:59:07
+-- Tiempo de generación: 15-02-2026 a las 12:56:29
 -- Versión del servidor: 5.7.44
 -- Versión de PHP: 8.3.26
 
@@ -43,7 +43,9 @@ INSERT INTO `duenios` (`id`, `nombre`, `apellido`, `telefono`, `direccion`) VALU
 (1, 'María', 'González', '11-1234-5678', 'Av. Siempre Viva 123'),
 (2, 'Carlos', 'Rodríguez', '11-8765-4321', 'Calle Falsa 456'),
 (3, 'Ana', 'Martínez', '11-5555-9999', 'Angel Mallea 2906'),
-(4, 'Jose Carlos', 'Silvestre', '11-9999-8888', 'Calle 123');
+(4, 'Jose Carlos', 'Silvestre', '11-9999-8888', 'Calle 123'),
+(5, 'Lucas', 'Silvestre', '11-2222-3333', 'Calle Falsa 123'),
+(6, 'Maria Elena', 'Sergnese', '1168792215', 'Cortaderas 234');
 
 -- --------------------------------------------------------
 
@@ -55,6 +57,7 @@ CREATE TABLE `historial_clinico` (
   `id` int(11) NOT NULL,
   `id_mascota` int(11) NOT NULL,
   `id_veterinario` int(11) NOT NULL,
+  `tipo_consulta` varchar(50) NOT NULL DEFAULT 'Chequeo General',
   `fecha_registro` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `descripcion` varchar(250) NOT NULL,
   `usuario_id` int(11) NOT NULL
@@ -64,10 +67,10 @@ CREATE TABLE `historial_clinico` (
 -- Volcado de datos para la tabla `historial_clinico`
 --
 
-INSERT INTO `historial_clinico` (`id`, `id_mascota`, `id_veterinario`, `fecha_registro`, `descripcion`, `usuario_id`) VALUES
-(2, 2, 2, '2025-12-19 02:23:49', 'Consulta por caída de pelo - tratamiento indicado', 13),
-(3, 1, 3, '2026-02-04 20:34:58', 'Primera consulta del nuevo veterinario Dermatologo', 14),
-(5, 2, 1, '2026-02-04 20:52:28', 'Problemas renales', 12);
+INSERT INTO `historial_clinico` (`id`, `id_mascota`, `id_veterinario`, `tipo_consulta`, `fecha_registro`, `descripcion`, `usuario_id`) VALUES
+(2, 2, 2, 'Chequeo General', '2025-12-19 02:23:49', 'Consulta por caída de pelo - tratamiento indicado', 13),
+(3, 1, 3, 'Chequeo General', '2026-02-04 20:34:58', 'Primera consulta del nuevo veterinario Dermatologo', 14),
+(5, 2, 1, 'Chequeo General', '2026-02-04 20:52:28', 'Problemas renales', 12);
 
 -- --------------------------------------------------------
 
@@ -80,16 +83,18 @@ CREATE TABLE `mascotas` (
   `nombre` varchar(50) NOT NULL,
   `especie` varchar(30) NOT NULL,
   `fecha_nacimiento` date DEFAULT NULL,
-  `id_duenio` int(11) NOT NULL
+  `id_duenio` int(11) NOT NULL,
+  `usuario_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `mascotas`
 --
 
-INSERT INTO `mascotas` (`id`, `nombre`, `especie`, `fecha_nacimiento`, `id_duenio`) VALUES
-(1, 'Antonia', 'Perro', '2020-05-15', 1),
-(2, 'Estrella', 'Gato', '2021-08-22', 2);
+INSERT INTO `mascotas` (`id`, `nombre`, `especie`, `fecha_nacimiento`, `id_duenio`, `usuario_id`) VALUES
+(1, 'Antonia', 'Perro', '2020-05-15', 1, NULL),
+(2, 'Estrella', 'Gato', '2021-08-22', 2, NULL),
+(3, 'Toto', 'Reptil', '1879-02-24', 6, NULL);
 
 -- --------------------------------------------------------
 
@@ -116,7 +121,9 @@ INSERT INTO `usuarios` (`id`, `email`, `password_hash`, `nombre`, `apellido`, `r
 (11, 'admin_lgs@patitasfelices.com', '$2b$10$qR2Fn9lZQmKPZLkrno52EOrFDko6rq2YgQFz4gyGsYegmlSx1jYy2', 'Administrador', 'Sistema', 'admin', '2026-02-03 20:30:54', '2026-02-03 20:30:54'),
 (12, 'jose.perez@patitasfelices.com', '$2b$10$ZzwXurAURV1hytksi51I3efsN/.gy7WkQv5ehvwIACoq2R5aWdqcK', 'Jose', 'Perez', 'veterinario', '2026-02-03 20:34:30', '2026-02-03 20:34:30'),
 (13, 'beni.pepe@patitasfelices.com', '$2b$10$flDOQ2T81DHFdr6oBvX.R.n3wjFuRkzgfcoril//VQ3mAjm2vkyv.', 'Benicio', 'Pepe', 'veterinario', '2026-02-03 20:38:15', '2026-02-03 20:38:15'),
-(14, 'nuevo.veterinario@patitas.com', '$2b$10$E9/DZsw/mgeIYvVFxX0AaOy.Qz466fBwfVurbll3n/ZE.DoMhZ9JS', 'Nuevo', 'Veterinario', 'veterinario', '2026-02-04 20:29:59', '2026-02-04 20:29:59');
+(14, 'nuevo.veterinario@patitas.com', '$2b$10$E9/DZsw/mgeIYvVFxX0AaOy.Qz466fBwfVurbll3n/ZE.DoMhZ9JS', 'Nuevo', 'Veterinario', 'veterinario', '2026-02-04 20:29:59', '2026-02-04 20:29:59'),
+(15, 'benisilvestre@patitasfelices.com.ar', '$2b$10$X6pRrlmrRyeMc2gDrQ9.cOCVs0p.RmDxayjv4jxbcKZojoqpguLb6', 'Benicio', 'Silvestre', 'veterinario', '2026-02-10 23:23:10', '2026-02-10 23:23:10'),
+(16, 'giu.silvestre@patitasfelices.com.ar', '$2b$10$tqWJGsskBUlakUaYIf8IOOkJI.roLPDQfryxNYDYKozJI8XlVSzmO', 'Giuliana', 'Silvestre', 'veterinario', '2026-02-12 23:20:56', '2026-02-12 23:20:56');
 
 -- --------------------------------------------------------
 
@@ -140,7 +147,8 @@ CREATE TABLE `veterinarios` (
 INSERT INTO `veterinarios` (`id`, `nombre`, `apellido`, `matricula`, `especialidad`, `usuario_id`) VALUES
 (1, 'Dr. Juan', 'Pérez', 'VET-12345', 'Cirugía', 12),
 (2, 'Dra. Laura', 'Sánchez', 'VET-67890', 'Traumatología', 13),
-(3, 'Nuevo', 'Veterinario', 'VET-99999', 'Dermatología', 14);
+(3, 'Nuevo', 'Veterinario', 'VET-99999', 'Dermatología', 14),
+(4, 'Giuliana', 'Silvestre', 'VET-2367', 'Fisioterapia', 16);
 
 --
 -- Índices para tablas volcadas
@@ -165,7 +173,8 @@ ALTER TABLE `historial_clinico`
 --
 ALTER TABLE `mascotas`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `id_duenio` (`id_duenio`);
+  ADD KEY `id_duenio` (`id_duenio`),
+  ADD KEY `fk_mascota_usuario` (`usuario_id`);
 
 --
 -- Indices de la tabla `usuarios`
@@ -190,7 +199,7 @@ ALTER TABLE `veterinarios`
 -- AUTO_INCREMENT de la tabla `duenios`
 --
 ALTER TABLE `duenios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `historial_clinico`
@@ -202,19 +211,19 @@ ALTER TABLE `historial_clinico`
 -- AUTO_INCREMENT de la tabla `mascotas`
 --
 ALTER TABLE `mascotas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de la tabla `veterinarios`
 --
 ALTER TABLE `veterinarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Restricciones para tablas volcadas
@@ -231,6 +240,7 @@ ALTER TABLE `historial_clinico`
 -- Filtros para la tabla `mascotas`
 --
 ALTER TABLE `mascotas`
+  ADD CONSTRAINT `fk_mascota_usuario` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`) ON DELETE SET NULL,
   ADD CONSTRAINT `mascotas_ibfk_1` FOREIGN KEY (`id_duenio`) REFERENCES `duenios` (`id`);
 
 --
