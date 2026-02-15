@@ -64,8 +64,8 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
         <div className="absolute inset-0 bg-gradient-to-tr from-primary/40 to-transparent mix-blend-multiply opacity-60"></div>
 
         <div className="relative z-10 text-white max-w-lg">
-          <div className="size-20 bg-primary rounded-2xl flex items-center justify-center shadow-2xl mb-8 transform -rotate-6">
-            <span className="material-symbols-outlined text-4xl font-bold text-slate-900">pets</span>
+          <div className="size-20 bg-primary rounded-2xl flex items-center justify-center shadow-2xl mb-8 transform -rotate-0">
+            <span className="material-symbols-outlined text-4xl font-bold text-slate-900">monitor_heart</span>
           </div>
           <h1 className="text-6xl font-black leading-tight mb-6 drop-shadow-lg">Gestiona tu clínica con amor.</h1>
           <p className="text-xl font-bold text-white/90 leading-relaxed drop-shadow-md">

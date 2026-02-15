@@ -93,7 +93,7 @@ const App: React.FC = () => {
       <Sidebar currentPage={currentPage} onNavigate={handleNavigate} onLogout={handleLogout} userRole={userRole} />
       <div className="flex-1 flex flex-col overflow-hidden">
         <Header
-          isDarkMode={isDarkMode}
+          /* isDarkMode={isDarkMode} */
           onToggleDarkMode={toggleDarkMode}
           onSearch={() => handleNavigate(Page.OWNERS)}
           onLogout={handleLogout}

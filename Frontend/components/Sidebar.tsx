@@ -38,7 +38,7 @@ const Sidebar: React.FC<SidebarProps> = ({ currentPage, onNavigate, onLogout, us
     <aside className="w-72 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 hidden lg:flex flex-col">
       <div className="p-6 flex items-center gap-3">
         <div className="size-10 bg-primary rounded-xl flex items-center justify-center text-slate-900 shadow-lg shadow-primary/20">
-          <span className="material-symbols-outlined font-bold">pets</span>
+          <span className="material-symbols-outlined font-bold">monitor_heart</span>
         </div>
         <div>
           <h1 className="text-lg font-black tracking-tight leading-none">Patitas Felices</h1>
@@ -97,13 +97,13 @@ const Sidebar: React.FC<SidebarProps> = ({ currentPage, onNavigate, onLogout, us
       </nav>
 
       <div className="p-4 space-y-4 border-t border-slate-100 dark:border-slate-800">
-        <div className="bg-primary/10 rounded-xl p-4">
+        {/* <div className="bg-primary/10 rounded-xl p-4">
           <p className="text-xs font-bold text-slate-800 dark:text-slate-200">¿Necesitas ayuda?</p>
           <p className="text-[10px] text-slate-500 mt-1">Soporte disponible 24/7 para tu clínica.</p>
           <button className="w-full mt-3 py-2 bg-white dark:bg-slate-800 text-[10px] font-bold rounded-lg border border-primary/20 hover:bg-slate-50 transition-colors">
             Contactar Soporte
           </button>
-        </div>
+        </div> */}
 
         <button
           onClick={onLogout}

@@ -169,11 +169,11 @@ const HistoryPage: React.FC = () => {
                   value={selectedMascota}
                   onChange={(e) => setSelectedMascota(e.target.value)}
                   required
-                  disabled={!!editingId} // No permitimos cambiar la mascota en edición por seguridad del dato
+                  disabled={!!editingId} // No se permite cambiar la mascota en edición por seguridad del dato
                 >
                   <option value="">Seleccionar mascota...</option>
                   {mascotas.map(m => (
-                    <option key={m.id} value={m.id}>{m.nombre} (ID: {m.id})</option>
+                    <option key={m.id} value={m.id}>{m.nombre}</option>
                   ))}
                 </select>
               </div>
