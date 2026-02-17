@@ -6,6 +6,8 @@ import authRoutes from './routes/auth.routes';
 import historialRoutes from './routes/historial.routes';
 import duenioRoutes from './routes/duenio.routes';
 import mascotaRoutes from './routes/mascota.routes';
+import turnoRoutes from './routes/turno.routes';
+import veterinarioRoutes from './routes/veterinario.routes';
 import cors from 'cors';
 import { errorHandler } from './middlewares/error.middleware';
 
@@ -31,6 +33,8 @@ app.use('/api/auth', authRoutes);
 app.use('/api/historial', historialRoutes);
 app.use('/api/duenios', duenioRoutes);
 app.use('/api/mascotas', mascotaRoutes);
+app.use('/api/turnos', turnoRoutes);
+app.use('/api/veterinarios', veterinarioRoutes);
 
 // Ruta de prueba simple
 app.get('/api/saludo', (req: Request, res: Response) => {

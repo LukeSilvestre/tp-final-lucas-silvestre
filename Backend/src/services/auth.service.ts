@@ -70,7 +70,7 @@ export const iniciarSesion = async (dto: LoginDTO): Promise<LoginResponseDTO> =>
     issuer: 'veterinaria-patitas-felices'
   };
 
-  // Generar token - asegurar que payload es objeto porque me generó problemas con que tenía que ser objeto y no string
+  // Generar token - asegurar que payload es objeto ("payload as object")porque me generó problemas con que tenía que ser objeto y no string
   const token = jwt.sign(payload as object, JWT_SECRET, opcionesToken);
 
   // Crear respuesta

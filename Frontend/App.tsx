@@ -62,7 +62,7 @@ const App: React.FC = () => {
             <p className="text-slate-500">Selecciona una opción del menú para comenzar a gestionar tu clínica.</p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
               <DashboardCard
-                icon="pets"
+                icon="monitor_heart"
                 title="Pacientes hoy"
                 value="24"
                 trend="+12%"
