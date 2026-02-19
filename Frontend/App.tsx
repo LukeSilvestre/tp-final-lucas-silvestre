@@ -58,7 +58,7 @@ const App: React.FC = () => {
       default:
         return (
           <div className="p-8">
-            <h1 className="text-3xl font-black mb-4">Bienvenido al Panel de Control</h1>
+            <h1 className="text-3xl font-black mb-4">Panel Central</h1>
             <p className="text-slate-500">Selecciona una opción del menú para comenzar a gestionar tu clínica.</p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
               <DashboardCard

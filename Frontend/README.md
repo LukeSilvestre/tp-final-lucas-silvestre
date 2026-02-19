@@ -44,7 +44,8 @@ Este es el cliente web para el sistema de gestión veterinaria **Patitas Felices
 ---
 
 ## 🩺 Funcionalidades Principales
-- **Gestión Clínica**: CRUD completo de historiales médicos.
-- **Panel de Seguridad**: Control de acceso y cierre de sesión.
-- **Gestión de Pacientes**: Visualización de dueños y mascotas registradas.
+- **Calendario Dinámico**: Sistema de agenda interactivo con navegación semanal (Anterior/Siguiente) y vista de "Hoy".
+- **Gestión Clínica**: CRUD completo de historiales médicos integrados con mascotas y dueños.
+- **Panel de Seguridad**: Registro de usuarios (Admin) y control de sesiones mediante JWT.
+- **Diseño Moderno**: Tipografía **Space Grotesk** y paleta **Emerald/Slate** para una estética profesional y limpia.
 - **Interfaz Adaptable**: Diseño responsivo y soporte para tema oscuro.

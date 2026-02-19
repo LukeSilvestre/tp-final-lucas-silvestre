@@ -24,8 +24,9 @@ El sistema ha sido revisado para cumplir con el 100% de los requisitos del profe
 
 ### 🌐 Frontend (React + TypeScript)
 - **Integración Real**: Consumo de la API REST mediante servicios desacoplados.
-- **CRUD Completo**: Implementado funcionalmente en la entidad **Historial Clínico** (Listar, Crear, Editar y Eliminar).
-- **Aesthetics**: Interfaz moderna, responsiva.
+- **CRUD Completo**: Implementado en las entidades de **Historial Clínico** y **Turnos**.
+- **Calendario Interactivo**: Sistema de agenda dinámico con navegación por semanas.
+
 
 ---
 
@@ -36,7 +37,7 @@ El sistema ha sido revisado para cumplir con el 100% de los requisitos del profe
 | **Backend** | Node.js, Express, TypeScript, MySQL, JWT, Bcrypt |
 | **Frontend**| React, Vite, TypeScript, TailwindCSS             |
 | **DevOps**  | Docker, Docker Compose                           |
-| **Testing** | Postman                                          |
+| **Diseño**  | Space Grotesk, Material Symbols                  |
 
 ---
 
@@ -55,7 +56,7 @@ cd Backend
 docker-compose up -d
 ```
 *Esto iniciará MySQL en el puerto 3306 y phpMyAdmin en el 8080.*
-*Importar el dump `Backend/scripts/veterinaria_patitas_felices.sql` desde phpMyAdmin (http://localhost:8080).*
+*El esquema se inicializa automáticamente mediante el dump en `Backend/scripts/`.*
 
 ### 3. Levantar el Backend
 ```bash
@@ -91,14 +92,20 @@ npm run dev
 ## 🩺 Endpoints Principales
 
 ### Autenticación
-- `POST /api/auth/registrar`: Registro de nuevos veterinarios o admins.
+- `POST /api/auth/registrar`: Registro de nuevos usuarios (Solo Admin).
 - `POST /api/auth/login`: Obtención de Bearer Token.
 
-### Historial Clínico (CRUD Completo)
-- `GET /api/historial`: Listado filtrado por rol.
+### Historial Clínico
+- `GET /api/historial`: Listado filtrado por rol (Dueño o Veterinario).
 - `POST /api/historial`: Crear nueva entrada.
 - `PATCH /api/historial/:id`: Actualizar observaciones o tipo.
-- `DELETE /api/historial/:id`: Eliminar registro (Casquete en cascada).
+- `DELETE /api/historial/:id`: Eliminar registro.
+
+### Gestión de Turnos (Citas)
+- `GET /api/turnos`: Obtener agenda (Global para admin, propia para vet).
+- `POST /api/turnos`: Agendar una nueva cita.
+- `DELETE /api/turnos/:id`: Cancelar un turno existente.
+- `GET /api/veterinarios`: Obtener listado de profesionales registrados.
 
 ---
 

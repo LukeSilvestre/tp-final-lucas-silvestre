@@ -9,6 +9,9 @@ const CalendarPage: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  // Estado para la navegación del calendario
+  const [baseDate, setBaseDate] = useState(new Date());
+
   // Estados para el nuevo turno
   const [newMascota, setNewMascota] = useState('');
   const [newVet, setNewVet] = useState('');
@@ -67,18 +70,33 @@ const CalendarPage: React.FC = () => {
     }
   };
 
-  // Lógica simplificada para mostrar los días de la semana actual. 
-  const obtenerDias = () => {
-    const hoy = new Date();
-    const startOfWeek = new Date(hoy);
-    startOfWeek.setDate(hoy.getDate() - hoy.getDay() + 1); // Lunes
+  // Navegación
+  const proximaSemana = () => {
+    const next = new Date(baseDate);
+    next.setDate(baseDate.getDate() + 7);
+    setBaseDate(next);
+  };
 
-    return [...Array(5)].map((_, i) => { //El primer parámetro (_) es el valor del elemento 
-      // (que es undefined). Usamos el guion bajo como convención para decir: "No me importa el valor, no 
-      // lo voy a usar".
+  const semanaAnterior = () => {
+    const prev = new Date(baseDate);
+    prev.setDate(baseDate.getDate() - 7);
+    setBaseDate(prev);
+  };
+
+  const hoyRegresar = () => setBaseDate(new Date());
+
+  // Lógica para mostrar los días de la semana según la fecha base
+  const obtenerDias = () => {
+    const startOfWeek = new Date(baseDate);
+    // Ajustar al lunes de esa semana
+    const day = baseDate.getDay();
+    const diff = baseDate.getDate() - day + (day === 0 ? -6 : 1);
+    startOfWeek.setDate(diff);
+
+    return [...Array(5)].map((_, i) => {
       const d = new Date(startOfWeek);
       d.setDate(startOfWeek.getDate() + i);
-      const isToday = d.toDateString() === hoy.toDateString();
+      const isToday = d.toDateString() === new Date().toDateString();
       return {
         name: d.toLocaleDateString('es-ES', { weekday: 'short' }).replace('.', ''),
         num: d.getDate().toString(),
@@ -86,6 +104,10 @@ const CalendarPage: React.FC = () => {
         active: isToday
       };
     });
+  };
+
+  const getMonthName = () => {
+    return baseDate.toLocaleDateString('es-ES', { month: 'long', year: 'numeric' });
   };
 
   const dias = obtenerDias();
@@ -118,9 +140,29 @@ const CalendarPage: React.FC = () => {
         <div className="flex justify-between items-center mb-8">
           <div>
             <h2 className="text-4xl font-black tracking-tight">Gestión de Turnos</h2>
-            <p className="text-sm text-slate-500 font-medium">Administración de la agenda veterinaria.</p>
+            <p className="text-sm text-slate-500 font-medium capitalize">{getMonthName()}</p>
           </div>
-          <div className="flex gap-4">
+          <div className="flex items-center gap-4">
+            <div className="flex bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-1 rounded-xl shadow-sm mr-4">
+              <button
+                onClick={semanaAnterior}
+                className="p-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg text-slate-600 transition-colors"
+              >
+                <span className="material-symbols-outlined text-sm">arrow_back_ios</span>
+              </button>
+              <button
+                onClick={hoyRegresar}
+                className="px-4 py-1 text-xs font-black uppercase tracking-tight hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg transition-colors"
+              >
+                Hoy
+              </button>
+              <button
+                onClick={proximaSemana}
+                className="p-2 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg text-slate-600 transition-colors"
+              >
+                <span className="material-symbols-outlined text-sm">arrow_forward_ios</span>
+              </button>
+            </div>
             <button
               onClick={() => setIsModalOpen(true)}
               className="bg-primary px-8 py-2 text-slate-900 font-black rounded-xl shadow-lg shadow-primary/20 hover:scale-105 transition-all"

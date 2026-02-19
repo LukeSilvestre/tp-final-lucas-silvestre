@@ -64,10 +64,10 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
         <div className="absolute inset-0 bg-gradient-to-tr from-primary/40 to-transparent mix-blend-multiply opacity-60"></div>
 
         <div className="relative z-10 text-white max-w-lg">
-          <div className="size-20 bg-primary rounded-2xl flex items-center justify-center shadow-2xl mb-8 transform -rotate-0">
+          {/* <div className="size-20 bg-primary rounded-2xl flex items-center justify-center shadow-2xl mb-8 transform -rotate-0">
             <span className="material-symbols-outlined text-4xl font-bold text-slate-900">monitor_heart</span>
-          </div>
-          <h1 className="text-6xl font-black leading-tight mb-6 drop-shadow-lg">TP Final: Gestiona tu clínica con amor.</h1>
+          </div> */}
+          <h1 className="text-6xl font-black leading-tight mb-6 drop-shadow-lg">TP Final: Gestión Integral de Clínicas Veterinarias</h1>
           <p className="text-xl font-bold text-white/90 leading-relaxed drop-shadow-md">
             La plataforma más completa para el cuidado de los pacientes más especiales. Centraliza historias clínicas, citas y dueños en un solo lugar.
           </p>
@@ -77,7 +77,7 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
       {/* Sección Formulario - Derecha */}
       <div className="flex-1 flex items-center justify-center p-6 lg:p-12">
         <div className="w-full max-w-md">
-          <div className="bg-white dark:bg-slate-900 rounded-3xl shadow-2xl border border-slate-100 dark:border-slate-800 overflow-hidden">
+          <div className="bg-emerald-50 dark:bg-slate-900 rounded-3xl shadow-2xl border border-slate-100 dark:border-slate-800 overflow-hidden">
 
             {/* Tabs */}
             <div className="flex border-b border-slate-100 dark:border-slate-800">
@@ -167,7 +167,7 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
                     disabled={loading}
                     className="w-full bg-primary text-slate-900 font-black h-12 rounded-xl mt-4 shadow-lg shadow-primary/20 hover:brightness-105 active:scale-[0.98] transition-all disabled:opacity-50"
                   >
-                    {loading ? 'Procesando...' : (isLoginTab ? 'ENTRAR AL PANEL' : 'CREAR MI CUENTA')}
+                    {loading ? 'Procesando...' : (isLoginTab ? 'INICIAR SESIÓN' : 'CREAR MI CUENTA')}
                   </button>
                 </form>
               </div>
