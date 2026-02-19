@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: mysql:3306
--- Tiempo de generación: 15-02-2026 a las 12:56:29
+-- Tiempo de generación: 18-02-2026 a las 00:48:21
 -- Versión del servidor: 5.7.44
 -- Versión de PHP: 8.3.26
 
@@ -45,7 +45,8 @@ INSERT INTO `duenios` (`id`, `nombre`, `apellido`, `telefono`, `direccion`) VALU
 (3, 'Ana', 'Martínez', '11-5555-9999', 'Angel Mallea 2906'),
 (4, 'Jose Carlos', 'Silvestre', '11-9999-8888', 'Calle 123'),
 (5, 'Lucas', 'Silvestre', '11-2222-3333', 'Calle Falsa 123'),
-(6, 'Maria Elena', 'Sergnese', '1168792215', 'Cortaderas 234');
+(6, 'Maria Elena', 'Sergnese', '1168792215', 'Cortaderas 234'),
+(7, 'Gustavo', 'Silvestre', '1158479601', 'Lanus Jodete');
 
 -- --------------------------------------------------------
 
@@ -70,7 +71,8 @@ CREATE TABLE `historial_clinico` (
 INSERT INTO `historial_clinico` (`id`, `id_mascota`, `id_veterinario`, `tipo_consulta`, `fecha_registro`, `descripcion`, `usuario_id`) VALUES
 (2, 2, 2, 'Chequeo General', '2025-12-19 02:23:49', 'Consulta por caída de pelo - tratamiento indicado', 13),
 (3, 1, 3, 'Chequeo General', '2026-02-04 20:34:58', 'Primera consulta del nuevo veterinario Dermatologo', 14),
-(5, 2, 1, 'Chequeo General', '2026-02-04 20:52:28', 'Problemas renales', 12);
+(5, 2, 1, 'Chequeo General', '2026-02-04 20:52:28', 'Problemas renales. Se le inyectó una ampolla de flexicamin 3mg.', 12),
+(6, 4, 4, 'Vacunación', '2026-02-15 13:43:32', 'Se le dio atención primaria al paciente porque presentaba tos de fumador.', 16);
 
 -- --------------------------------------------------------
 
@@ -94,7 +96,33 @@ CREATE TABLE `mascotas` (
 INSERT INTO `mascotas` (`id`, `nombre`, `especie`, `fecha_nacimiento`, `id_duenio`, `usuario_id`) VALUES
 (1, 'Antonia', 'Perro', '2020-05-15', 1, NULL),
 (2, 'Estrella', 'Gato', '2021-08-22', 2, NULL),
-(3, 'Toto', 'Reptil', '1879-02-24', 6, NULL);
+(3, 'Toto', 'Reptil', '1879-02-24', 6, NULL),
+(4, 'Pericardo', 'Ave', '1945-08-02', 7, 16);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `turnos`
+--
+
+CREATE TABLE `turnos` (
+  `id` int(11) NOT NULL,
+  `id_mascota` int(11) NOT NULL,
+  `id_veterinario` int(11) NOT NULL,
+  `fecha` date NOT NULL,
+  `hora` time NOT NULL,
+  `motivo` varchar(255) DEFAULT NULL,
+  `estado` enum('Pendiente','Realizado','Cancelado') NOT NULL DEFAULT 'Pendiente',
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `turnos`
+--
+
+INSERT INTO `turnos` (`id`, `id_mascota`, `id_veterinario`, `fecha`, `hora`, `motivo`, `estado`, `created_at`) VALUES
+(1, 1, 1, '2026-02-16', '09:00:00', 'Cirugía programada', 'Pendiente', '2026-02-16 14:42:45'),
+(2, 2, 2, '2026-02-16', '10:30:00', 'Vacunación Anual', 'Pendiente', '2026-02-16 14:42:45');
 
 -- --------------------------------------------------------
 
@@ -177,6 +205,14 @@ ALTER TABLE `mascotas`
   ADD KEY `fk_mascota_usuario` (`usuario_id`);
 
 --
+-- Indices de la tabla `turnos`
+--
+ALTER TABLE `turnos`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `turnos_ibfk_1` (`id_mascota`),
+  ADD KEY `turnos_ibfk_2` (`id_veterinario`);
+
+--
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
@@ -199,19 +235,25 @@ ALTER TABLE `veterinarios`
 -- AUTO_INCREMENT de la tabla `duenios`
 --
 ALTER TABLE `duenios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `historial_clinico`
 --
 ALTER TABLE `historial_clinico`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `mascotas`
 --
 ALTER TABLE `mascotas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT de la tabla `turnos`
+--
+ALTER TABLE `turnos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
@@ -242,6 +284,13 @@ ALTER TABLE `historial_clinico`
 ALTER TABLE `mascotas`
   ADD CONSTRAINT `fk_mascota_usuario` FOREIGN KEY (`usuario_id`) REFERENCES `usuarios` (`id`) ON DELETE SET NULL,
   ADD CONSTRAINT `mascotas_ibfk_1` FOREIGN KEY (`id_duenio`) REFERENCES `duenios` (`id`);
+
+--
+-- Filtros para la tabla `turnos`
+--
+ALTER TABLE `turnos`
+  ADD CONSTRAINT `turnos_ibfk_1` FOREIGN KEY (`id_mascota`) REFERENCES `mascotas` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `turnos_ibfk_2` FOREIGN KEY (`id_veterinario`) REFERENCES `veterinarios` (`id`);
 
 --
 -- Filtros para la tabla `veterinarios`

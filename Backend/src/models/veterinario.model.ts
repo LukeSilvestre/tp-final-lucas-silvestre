@@ -63,3 +63,9 @@ export const crearVeterinario = async (datos: {
   );
   return (result as any).insertId;
 };
+
+// Obtener todos los veterinarios
+export const getAllVeterinarios = async (): Promise<Veterinario[]> => {
+  const [rows] = await pool.execute('SELECT * FROM veterinarios ORDER BY nombre ASC, apellido ASC');
+  return rows as Veterinario[];
+};
