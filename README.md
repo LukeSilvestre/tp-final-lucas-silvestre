@@ -94,7 +94,7 @@ npm run dev
 ### Autenticación
 - `POST /api/auth/registrar`: Registro de nuevos usuarios.
   - **Público**: Permite que cualquier profesional se registre (solo con rol `veterinario` por defecto).
-  - **Admin**: Sólo el usuario "admin_lgs" con rol Administrador puede asignar roles específicos estando logueado.
+  - **Admin**: Sólo el usuario "admin_lgs" con rol Administrador puede asignar roles específicos estando logueado. Las credenciales se pueden ver en la collection de postman que está dentro del directorio Backend/docs [línea 375].
 - `POST /api/auth/login`: Obtención de Bearer Token.
 
 ### Historial Clínico
