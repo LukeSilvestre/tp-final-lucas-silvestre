@@ -9,8 +9,15 @@ const router = Router();
 // Ruta pública para Login
 router.post('/login', loginValidator, login);
 
-// Ruta protegida para Registrar (Solo Admin)
-router.post('/registrar', verificarToken, verificarRol(['admin']), registrarValidator, registrar);
+// Ruta para Registrar (Pública, pero si hay Admin logueado puede asignar roles)
+router.post('/registrar', (req: any, res: any, next: any) => {
+    // Si hay un token en el header, intento verificarlo para identificar al admin
+    if (req.headers.authorization) {
+        return verificarToken(req, res, next);
+    }
+    // Si no hay token, simplemente sigo (el controlador forzará el rol a veterinario)
+    next();
+}, registrarValidator, registrar);
 
 // Obtener perfil del usuario logueado
 router.get('/perfil', verificarToken, obtenerPerfil);

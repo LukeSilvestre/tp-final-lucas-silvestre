@@ -92,7 +92,9 @@ npm run dev
 ## 🩺 Endpoints Principales
 
 ### Autenticación
-- `POST /api/auth/registrar`: Registro de nuevos usuarios (Solo Admin).
+- `POST /api/auth/registrar`: Registro de nuevos usuarios.
+  - **Público**: Permite que cualquier profesional se registre (solo con rol `veterinario` por defecto).
+  - **Admin**: Sólo el usuario "admin_lgs" con rol Administrador puede asignar roles específicos estando logueado.
 - `POST /api/auth/login`: Obtención de Bearer Token.
 
 ### Historial Clínico

@@ -10,7 +10,14 @@ export const registrar = async (req: Request, res: Response, next: NextFunction)
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const usuarioId = await authService.registrarUsuario(req.body);
+    const userData = { ...req.body };
+
+    // Si no hay un usuario logueado o el usuario no es admin, fuerzo el rol a 'veterinario'
+    if (!req.usuario || req.usuario.rol !== 'admin') {
+      userData.rol = 'veterinario';
+    }
+
+    const usuarioId = await authService.registrarUsuario(userData);
     res.status(201).json({ id: usuarioId, mensaje: 'Usuario registrado exitosamente' });
   } catch (error) {
     next(error);
