@@ -67,7 +67,7 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
           {/* <div className="size-20 bg-primary rounded-2xl flex items-center justify-center shadow-2xl mb-8 transform -rotate-0">
             <span className="material-symbols-outlined text-4xl font-bold text-slate-900">monitor_heart</span>
           </div> */}
-          <h1 className="text-6xl font-black leading-tight mb-6 drop-shadow-lg">TP Final: Gestión Integral de Clínicas Veterinarias</h1>
+          <h1 className="text-6xl font-black leading-tight mb-6 drop-shadow-lg">TP Final: Gestión Integral de una Clínica Veterinaria</h1>
           <p className="text-xl font-bold text-white/90 leading-relaxed drop-shadow-md">
             La plataforma más completa para el cuidado de los pacientes más especiales. Centraliza historias clínicas, citas y dueños en un solo lugar.
           </p>

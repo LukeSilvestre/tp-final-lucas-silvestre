@@ -300,7 +300,6 @@ const CalendarPage: React.FC = () => {
                   required
                 >
                   <option value="">Seleccionar...</option>
-                  //Voy a crear una ruta nueva para traer todos los veterinarios existentes en la tabla
                   {veterinarios.map(v => <option key={v.id} value={v.id}>{v.nombre} {v.apellido}</option>)}
                 </select>
               </div>
