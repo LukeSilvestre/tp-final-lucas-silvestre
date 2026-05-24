@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: patitas-backend
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: patitas-backend
+  template:
+    metadata:
+      labels:
+        app: patitas-backend
+    spec:
+      containers:
+      - name: backend
+        image: patitas-backend:v1
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 3000
+        env:
+        - name: PORT
+          value: "3000"
+        - name: MYSQL_HOST
+          value: "patitas-db-service" # 👈 Apunta al servicio K8s de la BD
+        - name: MYSQL_PORT
+          value: "3306"
+        - name: MYSQL_USER
+          value: "root"
+        - name: MYSQL_PASSWORD
+          value: "root123"
+        - name: MYSQL_DATABASE
+          value: "veterinaria_patitas_felices"
+        - name: JWT_SECRET
+          value: "mi_secreto_super_seguro_123"
+        - name: JWT_EXPIRES_IN
+          value: "1h"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: patitas-backend-service
+  namespace: default
+spec:
+  ports:
+    - port: 3000
+      targetPort: 3000
+  selector:
+    app: patitas-backend
