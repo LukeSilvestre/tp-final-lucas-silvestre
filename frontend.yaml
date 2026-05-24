@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: patitas-frontend
+  namespace: default
+spec:
+  replicas: 2 # 👈 Le pido 2 réplicas para alta disponibilidad
+  selector:
+    matchLabels:
+      app: patitas-web
+  template:
+    metadata:
+      labels:
+        app: patitas-web
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:alpine # Una imagen liviana de servidor web
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: patitas-service
+  namespace: default
+spec:
+  type: ClusterIP
+  ports:
+  - port: 80
+    targetPort: 80
+  selector:
+    app: patitas-web
