@@ -4,7 +4,7 @@ metadata:
   name: patitas-frontend
   namespace: default
 spec:
-  replicas: 2 # 👈 Le pido 4 réplicas para alta disponibilidad
+  replicas: 4 # 👈 Le pido 4 réplicas para alta disponibilidad
   selector:
     matchLabels:
       app: patitas-web
