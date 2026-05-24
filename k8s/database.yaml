@@ -29,9 +29,9 @@ spec:
         image: mysql:8.0 # Usamos la imagen oficial de MySQL
         env:
         - name: MYSQL_ROOT_PASSWORD
-          value: "root" # En producción usaríamos un Secret, acá para lab local va directo
+          value: "root123" # En producción usaríamos un Secret, acá para lab local va directo
         - name: MYSQL_DATABASE
-          value: "patitas_felices" # Crea la base de datos automáticamente al iniciar
+          value: "veterinaria_patitas_felices" # Crea la base de datos automáticamente al iniciar
         ports:
         - containerPort: 3306
           name: mysql
